@@ -35,9 +35,44 @@
     }
   },
   "endpoints": [],
-  "inbounds": [],
-  "outbounds": [],
-  "route": {},
+  "inbounds": [
+#     auto_route 自动添加路由
+#     sniff 嗅探 tun必须配置为true
+    {"type": "tun","address": ["172.20.0.1/30"],"auto_route": true,"sniff": true}
+  ],
+  "outbounds": [
+    {"type": "direct","tag": "direct"},
+    {"type": "hysteria2","tag": "site","server": "site.abc.com","server_port": 16060,"password": "yourpassWD","tls": {"enabled": true} },
+        {
+      "tag": "hk2",
+      "type": "trojan",
+      "server": "wb.kaiqsz.com",
+      "server_port": 47119,
+      "password": "a9a3c58c-78fd-42f7-9aac-67adb1019c9f",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mm1.redapricotcloud.com"
+      }
+    },
+    {"type": "block","tag": "block"}, #阻塞
+    {"type": "dns","tag": "dns-out"} #dns流量的处理,可以直接使用
+  ],
+    "route": {
+    "rules": [
+      {"protocol": "dns","outbound": "dns-out"}, # 通过dns-out出去
+      {"rule_set": ["geoip-cn"],"outbound": "direct"},
+      {"rule_set": ["geosite-gfw"],"outbound": "site"},
+      {"rule_set": ["geosite-ads-all"],"outbound": "block"}
+    ],
+    "rule_set": [
+      {"tag":"geoip-cn","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geoip/cn.srs","download_detour":"site"},
+      {"tag": "geosite-gfw","type": "remote","format": "binary","url": "https://raw.githubusercontent.com/galendu/meta-rules-dat/blob/sing/geo/geosite/gfw.srs","download_detour": "site"},
+      {"tag": "geosite-ads-all","type": "remote","format": "binary","url": "https://raw.githubusercontent.com/galendu/meta-rules-dat/blob/sing/geo/geosite/category-ads-all.srs","download_detour": "site"}
+    ],
+    "auto_detect_interface": true, #turn,避免出现回路必须配置为true
+    "final": "direct" #前面的规则都不匹配的时候direct
+  },
   "experimental": {}
 }
 ```
