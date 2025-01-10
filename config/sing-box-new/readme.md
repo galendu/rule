@@ -45,15 +45,7 @@
     {"type": "hysteria2","tag": "site","server": "site.abc.com","server_port": 16060,"password": "yourpassWD","tls": {"enabled": true} },
         {
       "tag": "hk2",
-      "type": "trojan",
-      "server": "wb.kaiqsz.com",
-      "server_port": 47119,
-      "password": "a9a3c58c-78fd-42f7-9aac-67adb1019c9f",
-      "tls": {
-        "enabled": true,
-        "insecure": true,
-        "server_name": "mm1.redapricotcloud.com"
-      }
+      "type": "trojan"
     },
     {"type": "block","tag": "block"}, #阻塞
     {"type": "dns","tag": "dns-out"} #dns流量的处理,可以直接使用
