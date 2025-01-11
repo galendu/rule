@@ -32,6 +32,7 @@
       { "rule_set": "geosite-cn", "server": "aliDns" },
       { "rule_set": "geosite-geolocation-!cn", "server": "proxyDns" }
     ],
+    "disable_cache": false,
     "final": "aliDns",
     "strategy": "ipv4_only"
   },
