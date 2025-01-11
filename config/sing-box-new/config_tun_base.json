@@ -1,0 +1,66 @@
+{
+  "log": {
+    "disabled": false,
+    "level": "info",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {"tag": "google","address": "tls://dns.google","address_resolver": "alidns","detour": "hk"},
+      {"tag": "alidns","address": "223.5.5.5","detour": "direct"},
+      {"tag": "block","address": "rcode://success"}
+    ],
+    "rules": [
+      {"rule_set": "geosite-category-ads-all","server": "block"},
+      {"rule_set": ["geosite-gfw"],"server": "google"}
+    ],
+    "final": "alidns",
+    "strategy": "prefer_ipv4",
+    "disable_cache": false,
+    "disable_expire": false,
+    "independent_cache": false,
+    "reverse_mapping": false,
+    "fakeip": {}
+  },
+  "inbounds": [
+    {"type": "tun","address": ["172.20.0.1/30"],"auto_route": true,"sniff": true}
+  ],
+  "outbounds": [
+    {
+      "tag": "hk",
+      "type": "urltest",
+      "outbounds": [
+        "hk2",
+        "hk4"
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50
+    },
+    {
+      "tag": "hk2"
+    },
+    {
+      "tag": "hk4"
+    },
+    {"type": "direct","tag": "direct"},
+    {"type": "block","tag": "block"},
+    {"type": "dns","tag": "dns-out"}
+  ],
+  "route": {
+    "rules": [
+      {"protocol": "dns","outbound": "dns-out"},
+      {"rule_set": ["geosite-gfw"],"outbound": "hk"},
+      {"rule_set": ["geoip-cn"],"outbound": "direct"},
+      {"rule_set": ["geosite-category-ads-all"],"outbound": "block"}
+    ],
+    "rule_set": [
+      {"tag":"geoip-cn","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geoip/cn.srs","download_detour":"hk"},
+      {"tag": "geosite-gfw","type": "remote","format": "binary","url": "https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/gfw.srs","download_detour": "hk"},
+      {"tag": "geosite-category-ads-all","type": "remote","format": "binary","url": "https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/category-ads-all.srs","download_detour": "hk"}
+    ],
+    "auto_detect_interface": true,
+    "final": "direct"
+  },
+  "experimental": {}
+}
