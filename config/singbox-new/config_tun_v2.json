@@ -82,7 +82,8 @@
           "server": "127.0.0.1",
           "server_port": 2080
         }
-      }
+      },
+      "include_package": ["com.google.android.youtube","org.telegram.messenger","com.tencent.androidqqmail","com.google.ar.core","com.android.vending","com.microsoft.skydrive","com.instagram.android","com.apkpure.aegon","com.android.chrome","com.google.android.gms","com.google.android.gsf","com.ss.android.ugc.trill","org.videolan.vlc","com.mmm.trebelmusic","com.google.android.syncadapters.calendar","com.spotify.music","com.google.android.apps.translate","com.termux","travel.eskimo.esim","notion.id","com.google.earth"]
     },
     {
       "type": "mixed",
@@ -524,7 +525,7 @@
           "idev.dev"
         ],
         "domain_suffix": [
-          ".idev.dev"
+          "idev.dev","play.google.com", "android.clients.google.com", "lh3.googleusercontent.com", "mtalk.google.com"
         ],
         "outbound": "GLOBAL"
       },
@@ -630,7 +631,9 @@
       {
         "rule_set": [
           "geoip-cn",
-          "geosite-cn"
+          "geosite-cn",
+          "geosite-tencent",
+          "geosite-aliyun"
         ],
         "outbound": "🎯 全球直连"
       },
@@ -1275,6 +1278,20 @@
         "type": "remote",
         "format": "binary",
         "url": "https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geoip/private.srs",
+        "download_detour": "🚀 节点选择"
+      },
+      {
+        "tag": "geosite-aliyun",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/aliyun.srs",
+        "download_detour": "🚀 节点选择"
+      },
+      {
+        "tag": "geosite-tencent",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/tencent.srs",
         "download_detour": "🚀 节点选择"
       }
     ]
