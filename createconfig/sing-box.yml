@@ -22,14 +22,22 @@ jobs:
           docker run -d --name sing-box-sub --privileged --network host jwy8645/sing-box-subscribe:amd64
 
       - name: Wait for container to start
-        run: sleep 5
+        run: sleep 4
 
       - name: create config-tun-remote.json
         run: curl -L "http://127.0.0.1:5000/config/${{ github.event.inputs.subscriptionAddress }}&file=${{ github.event.inputs.stencilFile }}" -o config.json
+      - name: create Android windows config.json
+        run: |
+          apt-get install jq -y
+          cat config.json|jq '.experimental.clash_api.external_ui="ui"|.experimental.cache_file.path="cache.db"' >windows.json
+          cat config.json|jq 'del(.experimental)' >and.json
 
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4.5.0
         with:
           name: singbox-config
-          path: config.json
+          path: |
+            config.json
+            windows.json
+            and.json
