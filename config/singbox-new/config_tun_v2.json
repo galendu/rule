@@ -36,14 +36,14 @@
         "detour": "🎯 全球直连"
       },
       {
-        "tag": "dns_block",
+        "tag": "block",
         "address": "rcode://refused"
       }
     ],
     "rules": [
       {
-        "geosite": ["geosite-category-ads-all"],
-        "server": "dns_block",
+        "rule_set": ["geosite-category-ads-all"],
+        "server": "block",
         "disable_cache": true
       },
       {
@@ -515,6 +515,7 @@
       "tag": "🎯 全球直连",
       "type": "direct"
     },
+    { "tag": "block","type": "block"},
     {
       "tag": "dns-out",
       "type": "dns"
@@ -522,6 +523,10 @@
   ],
   "route": {
     "rules": [
+      {
+        "protocol": ["quic"],
+        "outbound": "block"
+      },
       {
         "type": "logical",
         "mode": "or",
@@ -534,10 +539,6 @@
           }
         ],
         "outbound": "dns-out"
-      },
-      {
-        "protocol": ["quic"],
-        "outbound": "block"
       },
       {
         "clash_mode": "direct",
