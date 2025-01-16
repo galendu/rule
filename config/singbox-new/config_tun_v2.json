@@ -63,10 +63,22 @@
       {
         "rule_set": "geosite-geolocation-!cn",
         "server": "proxyDns"
+      },
+      {
+        "domain_suffix": [
+          "chatgpt.com",
+          "auth.openai.com"
+        ],
+        "server": "proxyDns",
+        "rewrite_ttl": 3600
       }
     ],
     "final": "localDns",
-    "strategy": "ipv4_only"
+    "strategy": "ipv4_only",
+    "fakeip": {
+      "enabled": true,
+      "inet4_range": "198.18.0.0/15"
+    }
   },
   "inbounds": [
     {

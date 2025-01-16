@@ -1,0 +1,18 @@
+name: Run windows runner 
+
+on:
+  workflow_dispatch:
+    inputs:
+      subscriptionAddress:
+        description: '订阅地址,多个订阅链接中间使用"|"进行分割'
+        default: '机场地址,必须手动填写'
+jobs:
+  deployment:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: test
+        run: |
+          ls 

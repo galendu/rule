@@ -1,0 +1,64 @@
+name: Run Container and Store Output
+
+on:
+  workflow_dispatch:
+    inputs:
+      subscriptionAddress:
+        description: '订阅地址,多个订阅链接中间使用"|"进行分割'
+        default: '机场地址,必须手动填写'
+      stencilFile:
+        description: '转换模板文件'
+        default: 'https://raw.githubusercontent.com/galendu/rule/refs/heads/master/config/singbox-new/config_tun_v2.json'
+      client:
+        description: '客户端类型,all:全部,linux:linux,android:安卓,windows:windows'
+        default: 'all'
+jobs:
+  run-container:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Start container
+        run: |
+          docker run -d --name sing-box-sub --privileged --network host jwy8645/sing-box-subscribe:amd64
+
+      - name: Wait for container to start
+        run: sleep 4
+
+      - name: init dir
+        run: mkdir config
+      - name: create config-tun-remote.json
+        run: curl -L "http://127.0.0.1:5000/config/${{ github.event.inputs.subscriptionAddress }}&file=${{ github.event.inputs.stencilFile }}" -o config.json 
+      - name: create Android windows config.json
+        run: |
+          config_dir="config"
+          
+          # 根据输入参数处理 JSON 文件
+          case "${{ github.event.inputs.client }}" in
+            "all")
+              jq 'del(.experimental)' config.json > "$config_dir/and.json"
+              jq '.experimental.clash_api.external_ui="ui"|.experimental.cache_file.path="cache.db"' config.json > "$config_dir/windows.json"
+              mv config.json "$config_dir/"
+              ;;
+            "linux")
+              mv config.json "$config_dir/"
+              ;;
+            "and")
+              jq 'del(.experimental)' config.json > "$config_dir/and.json"
+              ;;
+            "windows")
+              jq '.experimental.clash_api.external_ui="ui"|.experimental.cache_file.path="cache.db"' config.json > "$config_dir/windows.json"
+              ;;
+            *)
+              echo "Error: Unknown client input '$client'."
+              exit 1
+              ;;
+          esac
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4.5.0
+        with:
+          name: singbox-config
+          path: |
+            config
