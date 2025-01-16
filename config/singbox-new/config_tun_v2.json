@@ -524,10 +524,6 @@
   "route": {
     "rules": [
       {
-        "protocol": ["quic"],
-        "outbound": "block"
-      },
-      {
         "type": "logical",
         "mode": "or",
         "rules": [
@@ -1161,6 +1157,10 @@
           "zhuihd.com"
         ],
         "outbound": "🎯 全球直连"
+      },
+      {
+        "protocol": ["quic"],
+        "outbound": "block"
       }
     ],
     "rule_set": [
