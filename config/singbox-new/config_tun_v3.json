@@ -44,6 +44,7 @@
       {
         "rule_set": ["geosite-category-ads-all"],
         "server": "block",
+        "action": "reject",
         "disable_cache": true
       },
       {
@@ -59,6 +60,7 @@
       {
         "rule_set": "geosite-cn",
         "server": "localDns",
+        "action": "route",
         "rewrite_ttl": 10800
       },
       {
