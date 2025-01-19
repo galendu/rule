@@ -120,13 +120,13 @@
       "tag": "🚀 节点选择",
       "type": "selector",
       "outbounds": [
-        "🔯 香港自动",
         "♻️ 自动选择-专线",
+        "🔯 香港自动",
         "🇭🇰 香港节点",
-        "🇯🇵 日本节点",
-        "台湾节点",
-        "新加坡节点",
-        "🇺🇲 美国节点",
+        "🇯🇵 日本自动",
+        "台湾自动",
+        "新加坡自动",
+        "🇺🇲 美国自动",
         "🐸 手动切换",
         "♻️ 自动选择",
         "🎯 全球直连"
@@ -136,55 +136,50 @@
       "tag": "📹 YouTube",
       "type": "selector",
       "outbounds": [
+        "🔯 香港自动",
+        "台湾自动",
+        "新加坡自动",
+        "🇭🇰 香港自动",
+        "🇯🇵 日本自动",
+        "🇺🇲 美国自动",
+        "🐸 手动切换",
         "🚀 节点选择",
         "♻️ 自动选择-专线",
-        "♻️ 自动选择",
-        "🔯 香港自动",
-        "台湾节点",
-        "新加坡节点",
-        "🇭🇰 香港节点",
-        "🇯🇵 日本节点",
-        "🇺🇲 美国节点",
-        "🐸 手动切换"
+        "♻️ 自动选择"
       ]
     },
     {
       "tag": "🤖 OpenAI",
-      "type": "selector",
+      "type": "urltest",
       "outbounds": [
-        "🚀 节点选择",
-        "♻️ 自动选择-专线",
-        "♻️ 自动选择",
-        "🔯 香港自动",
-        "台湾节点",
-        "新加坡节点",
-        "🇭🇰 香港节点",
-        "🇯🇵 日本节点",
-        "🇺🇲 美国节点",
-        "🐸 手动切换"
-      ]
+        "台湾自动",
+        "新加坡自动",
+        "🇯🇵 日本自动",
+        "🇺🇲 美国自动"
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50
     },
     {
       "tag": "🍀 Google",
       "type": "selector",
       "outbounds": [
-        "🚀 节点选择",
+        "🔯 香港自动",
         "♻️ 自动选择-专线",
         "♻️ 自动选择",
-        "🔯 香港自动",
-        "台湾节点",
-        "新加坡节点",
+        "台湾自动",
+        "新加坡自动",
         "🇭🇰 香港节点",
-        "🇯🇵 日本节点",
-        "🇺🇲 美国节点",
-        "🐸 手动切换"
+        "🇯🇵 日本自动",
+        "🐸 手动切换",
+        "🚀 节点选择"
       ]
     },
     {
       "tag": "👨‍💻 Github",
       "type": "selector",
       "outbounds": [
-        "🚀 节点选择",
         "♻️ 自动选择-专线",
         "♻️ 自动选择",
         "🔯 香港自动",
@@ -193,14 +188,14 @@
         "🇭🇰 香港节点",
         "🇯🇵 日本节点",
         "🇺🇲 美国节点",
-        "🐸 手动切换"
+        "🐸 手动切换",
+        "🚀 节点选择"
       ]
     },
     {
       "tag": "🪟 Microsoft",
       "type": "selector",
       "outbounds": [
-        "🚀 节点选择",
         "♻️ 自动选择-专线",
         "♻️ 自动选择",
         "🔯 香港自动",
@@ -209,6 +204,7 @@
         "🇭🇰 香港节点",
         "🇯🇵 日本节点",
         "🇺🇲 美国节点",
+        "🚀 节点选择",
         "🎯 全球直连"
       ]
     },
@@ -216,7 +212,6 @@
       "tag": "🐬 OneDrive",
       "type": "selector",
       "outbounds": [
-        "🚀 节点选择",
         "♻️ 自动选择-专线",
         "♻️ 自动选择",
         "🔯 香港自动",
@@ -225,46 +220,29 @@
         "🇭🇰 香港节点",
         "🇯🇵 日本节点",
         "🇺🇲 美国节点",
-        "🐸 手动切换"
-      ]
-    },
-    {
-      "tag": "🎵 TikTok",
-      "type": "selector",
-      "outbounds": [
-        "🚀 节点选择",
-        "♻️ 自动选择-专线",
-        "♻️ 自动选择",
-        "🔯 香港自动",
-        "台湾节点",
-        "新加坡节点",
-        "🇭🇰 香港节点",
-        "🇯🇵 日本节点",
-        "🇺🇲 美国节点",
-        "🐸 手动切换"
+        "🐸 手动切换",
+        "🚀 节点选择"
       ]
     },
     {
       "tag": "🎥 Netflix",
-      "type": "selector",
+      "type": "urltest",
       "outbounds": [
-        "🚀 节点选择",
-        "♻️ 自动选择-专线",
-        "♻️ 自动选择",
-        "🔯 香港自动",
         "台湾节点",
         "新加坡节点",
         "🇭🇰 香港节点",
         "🇯🇵 日本节点",
         "🇺🇲 美国节点",
         "🐸 手动切换"
-      ]
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50
     },
     {
       "tag": "📲 Telegram",
       "type": "selector",
       "outbounds": [
-        "🚀 节点选择",
         "♻️ 自动选择-专线",
         "♻️ 自动选择",
         "🔯 香港自动",
@@ -332,8 +310,8 @@
       ]
     },
     {
-      "tag": "🇯🇵 日本节点",
-      "type": "selector",
+      "tag": "🇯🇵 日本自动",
+      "type": "urltest",
       "outbounds": [
         "{all}"
       ],
@@ -350,7 +328,10 @@
             "原生"
           ]
         }
-      ]
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50
     },
     {
       "tag": "冷门节点",
@@ -368,8 +349,8 @@
       ]
     },
     {
-      "tag": "台湾节点",
-      "type": "selector",
+      "tag": "台湾自动",
+      "type": "urltest",
       "outbounds": [
         "{all}"
       ],
@@ -386,11 +367,14 @@
             "原生"
           ]
         }
-      ]
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50
     },
     {
-      "tag": "新加坡节点",
-      "type": "selector",
+      "tag": "新加坡自动",
+      "type": "urltest",
       "outbounds": [
         "{all}"
       ],
@@ -404,14 +388,17 @@
         {
           "action": "exclude",
           "keywords": [
-            "原生"
+            "0.1|0.2|原生"
           ]
         }
-      ]
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50
     },
     {
-      "tag": "🇺🇲 美国节点",
-      "type": "selector",
+      "tag": "🇺🇲 美国自动",
+      "type": "urltest",
       "outbounds": [
         "{all}"
       ],
@@ -425,10 +412,13 @@
         {
           "action": "exclude",
           "keywords": [
-            "香港|港|HK|hk|HongKong|原生"
+            "0.1|0.2"
           ]
         }
-      ]
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50
     },
     {
       "tag": "🔯 香港自动",
@@ -616,10 +606,6 @@
         "outbound": "🍀 Google"
       },
       {
-        "rule_set": "geosite-tiktok",
-        "outbound": "🎵 TikTok"
-      },
-      {
         "rule_set": [
           "geoip-apple",
           "geosite-apple"
@@ -655,7 +641,6 @@
       {"tag":"geosite-google","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/google.srs","download_detour":"🚀 节点选择"},
       {"tag":"geosite-github","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/github.srs","download_detour":"🚀 节点选择"},
       {"tag":"geosite-telegram","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/telegram.srs","download_detour":"🚀 节点选择"},
-      {"tag":"geosite-tiktok","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/tiktok.srs","download_detour":"🚀 节点选择"},
       {"tag":"geosite-netflix","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/netflix.srs","download_detour":"🚀 节点选择"},
       {"tag":"geosite-apple","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/apple.srs","download_detour":"🚀 节点选择"},
       {"tag":"geosite-microsoft","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/microsoft.srs","download_detour":"🚀 节点选择"},
