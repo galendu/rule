@@ -6,7 +6,7 @@
       "listen_port": 26060,
       "network": "tcp",
       "method": "2022-blake3-aes-128-gcm",
-      "password": "kb8JSczJ8c01xW0XLfO8Sg==",
+      "password": "xx",
       "multiplex": {
         "enabled": true
       }

@@ -14,12 +14,12 @@
       "users": [
         {
           "name": "sekai",
-          "password": "nm23vR7IysEEeudLh4nlIw=="
+          "password": "xx"
         }
       ],
       "tls": {
         "enabled": true,
-        "server_name": "18.183.58.203",
+        "server_name": "xx.xx.xx.xx",
         "key_path": "/etc/sing-box/cert/private.key",
         "certificate_path": "/etc/sing-box/cert/cert.pem"
       }
