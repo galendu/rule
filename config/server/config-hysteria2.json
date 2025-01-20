@@ -1,0 +1,70 @@
+{
+  "log": {
+    "disabled": false,
+    "level": "debug",
+    "timestamp": true
+  },
+  "inbounds": [
+    {
+      "type": "hysteria2",
+      "listen": "::",
+      "listen_port": 26060,
+      "up_mbps": 100,
+      "down_mbps": 100,
+      "users": [
+        {
+          "name": "sekai",
+          "password": "nm23vR7IysEEeudLh4nlIw=="
+        }
+      ],
+      "tls": {
+        "enabled": true,
+        "server_name": "18.183.58.203",
+        "key_path": "/etc/sing-box/cert/private.key",
+        "certificate_path": "/etc/sing-box/cert/cert.pem"
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "ip_is_private": true,
+        "outbound": "block"
+      },
+      {
+        "rule_set": [
+          "geoip-cn",
+          "geosite-category-ads-all"
+        ],
+        "outbound": "block"
+      }
+    ],
+    "rule_set": [
+      {
+        "tag": "geoip-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-category-ads-all",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
+        "download_detour": "direct"
+      }
+    ],
+    "final": "direct"
+  }
+}
