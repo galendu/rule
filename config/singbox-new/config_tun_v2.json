@@ -126,8 +126,7 @@
           "username": "admin",
           "password": "admin"
         }
-      ],
-      "set_system_proxy": true
+      ]
     }
   ],
   "outbounds": [
