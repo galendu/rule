@@ -117,10 +117,17 @@
     },
     {
       "type": "mixed",
+      "tag": "mixed-in",
       "listen": "0.0.0.0",
       "listen_port": 2080,
       "sniff": true,
-      "users": []
+      "users": [
+        {
+          "username": "admin",
+          "password": "admin"
+        }
+      ],
+      "set_system_proxy": true
     }
   ],
   "outbounds": [
