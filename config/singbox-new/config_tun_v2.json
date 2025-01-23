@@ -87,7 +87,7 @@
         "disable_cache": true
       }
     ],
-    "final": "proxyDns",
+    "final": "localDns",
     "strategy": "prefer_ipv4",
     "disable_cache": false,
     "disable_expire": false,
