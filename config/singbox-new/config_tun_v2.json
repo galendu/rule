@@ -610,6 +610,10 @@
           "yacd.haishan.me",
           "d.metacubex.one"
         ],
+        "domain_suffix": [
+          "xn--ngstr-lra8j.com",
+          "googleapis.cn"
+        ],
         "rule_set": [
           "geosite-tencent",
           "geosite-aliyun",
