@@ -5,7 +5,7 @@ WORKFLOW_ID="sing-box.yml"
 BRANCH="main"
 GITHUB_TOKEN=""
 SUB_ADDR=""
-CONFIG="https://raw.githubusercontent.com/galendu/rule/refs/heads/master/config/singbox-new/config_tun_v2.json"
+CONFIG="https://raw.githubusercontent.com/galendu/rule/refs/heads/master/config/singbox-new/config_tun_v2_1.11.json"
 DATE=`date +%s`
 cd /etc/sing-box/
 # 触发GitHub Actions

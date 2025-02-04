@@ -41,9 +41,22 @@
         "address_strategy": "ipv4_only",
         "strategy": "prefer_ipv4",
         "detour": "🎯 全球直连"
+      },
+      {
+        "type": "fakeip",
+        "tag": "fakeip",
+        "inet4_range": "198.18.0.0/15",
+        "inet6_range": "fc00::/18"
       }
     ],
     "rules": [
+      {
+        "query_type": [
+          "A",
+          "AAAA"
+        ],
+        "server": "fakeip"
+      },
       {
         "outbound": "any",
         "server": "defaultDns",
@@ -89,11 +102,7 @@
     "disable_cache": false,
     "disable_expire": false,
     "independent_cache": false,
-    "reverse_mapping": false,
-    "fakeip": {
-      "enabled": true,
-      "inet4_range": "198.18.0.0/15"
-    }
+    "reverse_mapping": false
   },
   "inbounds": [
     {
