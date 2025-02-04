@@ -545,19 +545,6 @@
         "action": "hijack-dns"
       },
       {
-        "type": "logical",
-        "mode": "or",
-        "rules": [
-          {
-            "port": 53
-          },
-          {
-            "protocol": "dns"
-          }
-        ],
-        "outbound": "dns-out"
-      },
-      {
         "rule_set": "geosite-chat",
         "domain_keyword": [
           "openai",
