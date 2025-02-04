@@ -531,10 +531,6 @@
       "multiplex": {
         "enabled": true
       }
-    },
-    {
-      "tag": "dns-out",
-      "type": "dns"
     }
 
   ],
