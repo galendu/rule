@@ -531,6 +531,10 @@
       "multiplex": {
         "enabled": true
       }
+    },
+    {
+      "tag": "dns-out",
+      "type": "dns"
     }
 
   ],
@@ -543,6 +547,19 @@
       {
         "protocol": "dns",
         "action": "hijack-dns"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "port": 53
+          },
+          {
+            "protocol": "dns"
+          }
+        ],
+        "outbound": "dns-out"
       },
       {
         "rule_set": "geosite-chat",
