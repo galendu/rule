@@ -64,7 +64,13 @@
         "rewrite_ttl": 10800
       },
       {
-        "rule_set": "geosite-cn",
+        "rule_set": [
+          "geosite-tencent",
+          "geosite-aliyun",
+          "geosite-zhihu",
+          "geosite-private",
+          "geosite-cn"
+        ],
         "server": "localDns",
         "rewrite_ttl": 10800
       },
