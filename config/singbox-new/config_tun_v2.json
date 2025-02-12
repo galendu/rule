@@ -72,6 +72,11 @@
           "geosite-private",
           "geosite-cn"
         ],
+        "domain_suffix": [
+          "qq.com",
+          "qlogo.cn",
+          "qpic.cn"
+        ],
         "server": "localDns",
         "rewrite_ttl": 10800
       },
