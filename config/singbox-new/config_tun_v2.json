@@ -565,10 +565,6 @@
   "route": {
     "rules": [
       {
-        "protocol": ["quic"],
-        "outbound": "block"
-      },
-      {
         "type": "logical",
         "mode": "or",
         "rules": [
@@ -691,6 +687,10 @@
       {
         "clash_mode": "global",
         "outbound": "GLOBAL"
+      },
+      {
+        "protocol": ["quic"],
+        "outbound": "block"
       }
     ],
     "rule_set": [

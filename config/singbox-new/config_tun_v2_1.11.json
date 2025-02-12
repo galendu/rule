@@ -24,21 +24,21 @@
       {
         "tag": "proxyDns",
         "address": "https://8.8.8.8/dns-query",
-        "address_strategy": "ipv4_only",
+        "address_strategy": "prefer_ipv4",
         "strategy": "prefer_ipv4",
         "detour": "🚀 节点选择"
       },
       {
         "tag": "localDns",
         "address": "223.5.5.5",
-        "address_strategy": "ipv4_only",
+        "address_strategy": "prefer_ipv4",
         "strategy": "prefer_ipv4",
         "detour": "🎯 全球直连"
       },
       {
         "tag": "defaultDns",
         "address": "223.5.5.5",
-        "address_strategy": "ipv4_only",
+        "address_strategy": "prefer_ipv4",
         "strategy": "prefer_ipv4",
         "detour": "🎯 全球直连"
       }
@@ -46,21 +46,37 @@
     "rules": [
       {
         "outbound": "any",
+        "action": "route",
         "server": "defaultDns",
         "disable_cache": true
       },
       {
         "clash_mode": "direct",
+        "action": "route",
         "server": "localDns",
         "rewrite_ttl": 10800
       },
       {
         "clash_mode": "global",
+        "action": "route",
         "server": "proxyDns",
         "rewrite_ttl": 10800
       },
       {
-        "rule_set": "geosite-cn",
+        "rule_set": [
+          "geosite-tencent-cn",
+          "geosite-tencent-games-cn",
+          "geosite-aliyun",
+          "geosite-zhihu",
+          "geosite-private",
+          "geosite-cn"
+        ],
+        "domain_suffix": [
+          "qq.com",
+          "qlogo.cn",
+          "qpic.cn"
+        ],
+        "action": "route",
         "server": "localDns",
         "rewrite_ttl": 10800
       },
@@ -75,13 +91,15 @@
       },
       {
         "rule_set": "geosite-geolocation-!cn",
+        "action": "route",
         "server": "proxyDns",
         "rewrite_ttl": 10800
       },
       {
         "rule_set": ["geosite-category-ads-all"],
-        "action": "reject",
-        "method": "drop"
+        "action": "route",
+        "server": "block",
+        "disable_cache": true
       }
     ],
     "final": "localDns",
@@ -92,7 +110,8 @@
     "reverse_mapping": false,
     "fakeip": {
       "enabled": true,
-      "inet4_range": "198.18.0.0/15"
+      "inet4_range": "198.18.0.0/15",
+      "inet6_range": "fc00::/18"
     }
   },
   "inbounds": [
@@ -101,6 +120,7 @@
       "address": "172.19.0.1/30",
       "mtu": 9000,
       "auto_route": true,
+      "sniff": true,
       "stack": "system",
       "platform": {
         "http_proxy": {
@@ -109,7 +129,14 @@
           "server_port": 2080
         }
       },
-      "include_package": ["com.google.android.youtube","org.telegram.messenger","com.tencent.androidqqmail","com.google.ar.core","com.android.vending","com.microsoft.skydrive","com.instagram.android","com.apkpure.aegon","com.android.chrome","com.google.android.gms","com.google.android.gsf","com.ss.android.ugc.trill","org.videolan.vlc","com.mmm.trebelmusic","com.google.android.syncadapters.calendar","com.spotify.music","com.google.android.apps.translate","com.termux","travel.eskimo.esim","notion.id","com.google.earth"]
+      "include_package": ["com.google.android.youtube","org.telegram.messenger","com.google.ar.core","com.android.vending","com.microsoft.skydrive","com.instagram.android","com.apkpure.aegon","com.android.chrome","com.google.android.gms","com.google.android.gsf","com.ss.android.ugc.trill","org.videolan.vlc","com.mmm.trebelmusic","com.google.android.syncadapters.calendar","com.spotify.music","com.google.android.apps.translate","com.termux","travel.eskimo.esim","notion.id","com.google.earth"]
+    },
+    {
+      "type": "mixed",
+      "listen": "0.0.0.0",
+      "listen_port": 2080,
+      "sniff": true,
+      "users": []
     }
   ],
   "outbounds": [
@@ -531,13 +558,15 @@
       "multiplex": {
         "enabled": true
       }
+    },
+    {
+      "tag": "dns-out",
+      "type": "dns"
     }
-
   ],
   "route": {
     "rules": [
       {
-        "inbound": "tun-in",
         "action": "sniff"
       },
       {
@@ -555,7 +584,38 @@
             "protocol": "dns"
           }
         ],
+        "action": "route",
         "outbound": "dns-out"
+      },
+      {
+        "clash_mode": "direct",
+        "action": "route",
+        "outbound": "🎯 全球直连"
+      },
+      {
+        "domain": [
+          "clash.razord.top",
+          "yacd.metacubex.one",
+          "yacd.haishan.me",
+          "d.metacubex.one"
+        ],
+        "domain_suffix": [
+          "xn--ngstr-lra8j.com",
+          "xn–ngstr-cn-8za9o.com",
+          "googleapis.cn"
+        ],
+        "rule_set": [
+          "geosite-tencent-cn",
+          "geosite-tencent-games-cn",
+          "geosite-aliyun",
+          "geosite-zhihu",
+          "geosite-private",
+          "geoip-private",
+          "geoip-cn",
+          "geosite-cn"
+        ],
+        "action": "route",
+        "outbound": "🎯 全球直连"
       },
       {
         "rule_set": "geosite-chat",
@@ -586,48 +646,27 @@
           "anthropic.com",
           "claude.ai.com"
         ],
+        "action": "route",
         "outbound": "🤖 OpenAI"
       },
       {
-        "clash_mode": "direct",
-        "outbound": "🎯 全球直连"
-      },
-      {
-        "domain": [
-          "clash.razord.top",
-          "yacd.metacubex.one",
-          "yacd.haishan.me",
-          "d.metacubex.one"
-        ],
-        "domain_suffix": [
-          "xn--ngstr-lra8j.com",
-          "xn–ngstr-cn-8za9o.com",
-          "googleapis.cn"
-        ],
-        "rule_set": [
-          "geosite-tencent",
-          "geosite-aliyun",
-          "geosite-private",
-          "geoip-private",
-          "geoip-cn",
-          "geosite-cn"
-        ],
-        "outbound": "🎯 全球直连"
-      },
-      {
         "rule_set": "geosite-github",
+        "action": "route",
         "outbound": "👨‍💻 Github"
       },
       {
         "rule_set": "geosite-youtube",
+        "action": "route",
         "outbound": "📹 YouTube"
       },
       {
         "rule_set": "geosite-onedrive",
+        "action": "route",
         "outbound": "🐬 OneDrive"
       },
       {
         "rule_set": "geosite-microsoft",
+        "action": "route",
         "outbound": "🪟 Microsoft"
       },
       {
@@ -635,6 +674,7 @@
           "geoip-google",
           "geosite-google"
         ],
+        "action": "route",
         "outbound": "🍀 Google"
       },
       {
@@ -642,6 +682,7 @@
           "geoip-apple",
           "geosite-apple"
         ],
+        "action": "route",
         "outbound": "🍏 Apple"
       },
       {
@@ -649,6 +690,7 @@
           "geoip-netflix",
           "geosite-netflix"
         ],
+        "action": "route",
         "outbound": "🎥 Netflix"
       },
       {
@@ -656,23 +698,28 @@
           "geoip-telegram",
           "geosite-telegram"
         ],
+        "action": "route",
         "outbound": "📲 Telegram"
       },
       {
         "rule_set": "geosite-geolocation-!cn",
+        "action": "route",
         "outbound": "🚀 节点选择"
       },
       {
         "clash_mode": "global",
+        "action": "route",
         "outbound": "GLOBAL"
-      },
-      {
-        "rule_set": ["geosite-category-ads-all"],
-        "action": "reject",
-        "method": "drop"
       }
     ],
     "rule_set": [
+      {"tag":"geoip-cn","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geoip/cn.srs","download_detour":"🚀 节点选择"},
+      {"tag":"geoip-private","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geoip/private.srs","download_detour":"🚀 节点选择"},
+      {"tag":"geosite-aliyun","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/aliyun.srs","download_detour":"🚀 节点选择"},
+      {"tag":"geosite-tencent-cn","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/tencent@cn.srs","download_detour":"🚀 节点选择"},
+      {"tag":"geosite-tencent-games-cn","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/tencent-games@cn.srs","download_detour":"🚀 节点选择"},
+      {"tag":"geosite-zhihu","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/zhihu.srs","download_detour":"🚀 节点选择"},
+      { "tag": "geosite-category-ads-all", "type": "remote", "format": "binary", "url": "https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/category-ads-all.srs", "download_detour": "🚀 节点选择" },
       {"tag":"geosite-chat","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/category-ai-chat-!cn.srs","download_detour":"🚀 节点选择"},
       {"tag":"geosite-youtube","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/youtube.srs","download_detour":"🚀 节点选择"},
       {"tag":"geosite-google","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/google.srs","download_detour":"🚀 节点选择"},
@@ -688,12 +735,7 @@
       {"tag":"geoip-google","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geoip/google.srs","download_detour":"🚀 节点选择"},
       {"tag":"geoip-telegram","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geoip/telegram.srs","download_detour":"🚀 节点选择"},
       {"tag":"geoip-netflix","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geoip/netflix.srs","download_detour":"🚀 节点选择"},
-      {"tag":"geoip-apple","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo-lite/geoip/apple.srs","download_detour":"🚀 节点选择"},
-      {"tag":"geoip-cn","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geoip/cn.srs","download_detour":"🚀 节点选择"},
-      {"tag":"geoip-private","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geoip/private.srs","download_detour":"🚀 节点选择"},
-      {"tag":"geosite-aliyun","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/aliyun.srs","download_detour":"🚀 节点选择"},
-      {"tag":"geosite-tencent","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/tencent.srs","download_detour":"🚀 节点选择"},
-      { "tag": "geosite-category-ads-all", "type": "remote", "format": "binary", "url": "https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/category-ads-all.srs", "download_detour": "🚀 节点选择" }
+      {"tag":"geoip-apple","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo-lite/geoip/apple.srs","download_detour":"🚀 节点选择"}
     ],
     "auto_detect_interface": true,
     "final": "🐠 漏网之鱼"
