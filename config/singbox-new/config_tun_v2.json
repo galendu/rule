@@ -65,7 +65,8 @@
       },
       {
         "rule_set": [
-          "geosite-tencent",
+          "geosite-tencent-cn",
+          "geosite-tencent-games-cn",
           "geosite-aliyun",
           "geosite-zhihu",
           "geosite-private",
@@ -591,7 +592,8 @@
           "googleapis.cn"
         ],
         "rule_set": [
-          "geosite-tencent",
+          "geosite-tencent-cn",
+          "geosite-tencent-games-cn",
           "geosite-aliyun",
           "geosite-zhihu",
           "geosite-private",
@@ -689,7 +691,8 @@
       {"tag":"geoip-cn","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geoip/cn.srs","download_detour":"🚀 节点选择"},
       {"tag":"geoip-private","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geoip/private.srs","download_detour":"🚀 节点选择"},
       {"tag":"geosite-aliyun","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/aliyun.srs","download_detour":"🚀 节点选择"},
-      {"tag":"geosite-tencent","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/tencent.srs","download_detour":"🚀 节点选择"},
+      {"tag":"geosite-tencent-cn","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/tencent@cn.srs","download_detour":"🚀 节点选择"},
+      {"tag":"geosite-tencent-games-cn","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/tencent-games@cn.srs","download_detour":"🚀 节点选择"},
       {"tag":"geosite-zhihu","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/zhihu.srs","download_detour":"🚀 节点选择"},
       { "tag": "geosite-category-ads-all", "type": "remote", "format": "binary", "url": "https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/category-ads-all.srs", "download_detour": "🚀 节点选择" },
       {"tag":"geosite-chat","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/category-ai-chat-!cn.srs","download_detour":"🚀 节点选择"},
