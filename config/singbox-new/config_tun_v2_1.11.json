@@ -27,11 +27,6 @@
     [
       {"tag": "dns_direct", "address": "223.5.5.5", "address_strategy": "ipv4_only", "strategy": "ipv4_only", "detour": "🎯 全球直连"},
       {
-        "tag": "dns_alibaba",
-        "address": "https://dns.alidns.com/dns-query",
-        "detour": "direct"
-      },
-      {
         "tag": "dns_cloudflare",
         "address": "https://1.1.1.1/dns-query",
         "detour": "🚀 节点选择"
