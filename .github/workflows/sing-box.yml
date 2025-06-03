@@ -61,4 +61,4 @@ jobs:
         with:
           name: singbox-config
           path: |
-            config
+            config1
