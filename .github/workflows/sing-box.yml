@@ -28,12 +28,12 @@ jobs:
         run: sleep 4
 
       - name: init dir
-        run: mkdir config
+        run: mkdir config1
       - name: create config-tun-remote.json
         run: curl -L "http://127.0.0.1:5000/config/${{ github.event.inputs.subscriptionAddress }}&file=${{ github.event.inputs.stencilFile }}" -o config.json 
       - name: create Android windows config.json
         run: |
-          config_dir="config"
+          config_dir="config1"
           
           # 根据输入参数处理 JSON 文件
           case "${{ github.event.inputs.client }}" in
