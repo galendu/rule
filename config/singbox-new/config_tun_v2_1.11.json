@@ -86,7 +86,7 @@
       {"clash_mode": "global", "outbound": "GLOBAL"},
       {"domain": ["clash.razord.top", "yacd.metacubex.one", "yacd.haishan.me", "d.metacubex.one"],"domain_suffix": ["xn--ngstr-lra8j.com","xn–ngstr-cn-8za9o.com","googleapis.cn"], "outbound": "🎯 全球直连"},
       {"rule_set": "geosite-private", "outbound": "🎯 全球直连"},
-      {"rule_set": "geosite-chat", "outbound": "🤖 OpenAI"},
+      {"rule_set": ["geoip-aws","geoip-aws"], "outbound": "🤖 OpenAI"},
       {"rule_set": "geosite-youtube", "outbound": "📹 YouTube"},
       {"rule_set": "geosite-github", "outbound": "👨‍💻 Github"},
       {"rule_set": ["geosite-google", "geoip-google"], "outbound": "🍀 Google"},
@@ -117,6 +117,7 @@
       { "tag": "geoip-telegram", "type": "remote", "format": "binary", "url": "https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geoip/telegram.srs", "download_detour": "🚀 节点选择","update_interval": "7d" },
       { "tag": "geoip-netflix", "type": "remote", "format": "binary", "url": "https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geoip/netflix.srs", "download_detour": "🚀 节点选择","update_interval": "7d" },
       { "tag": "geoip-apple", "type": "remote", "format": "binary", "url": "https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo-lite/geoip/apple.srs", "download_detour": "🚀 节点选择","update_interval": "7d" },
+      { "tag": "geoip-aws", "type": "remote", "format": "binary", "url": "https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geoip/aws.srs", "download_detour": "🚀 节点选择","update_interval": "7d" },
       { "tag": "geoip-cn", "type": "remote", "format": "binary", "url": "https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geoip/cn.srs", "download_detour": "🚀 节点选择","update_interval": "7d" },
       { "tag": "geoip-private", "type": "remote", "format": "binary", "url": "https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geoip/private.srs", "download_detour": "🚀 节点选择","update_interval": "7d" }
     ]
