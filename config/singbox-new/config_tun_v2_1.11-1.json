@@ -102,7 +102,7 @@
   
       "rule_set": [
         { "tag": "geosite-chat", "type": "remote", "format": "binary", "url": "https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/category-ai-chat-!cn.srs", "download_detour": "🚀 节点选择","update_interval": "7d" },
-        { "tag": "geosite-openai", "type": "remote", "format": "binary", "url": "https://github.com/galendu/meta-rules-dat/raw/refs/heads/sing/geo-lite/geosite/openai.srs", "download_detour": "🚀 节点选择","update_interval": "7d" },
+        { "tag": "geosite-openai", "type": "remote", "format": "binary", "url": "https://raw.githubusercontent.com/galend/meta-rules-dat/raw/refs/heads/sing/geo-lite/geosite/openai.srs", "download_detour": "🚀 节点选择","update_interval": "7d" },
         { "tag": "geosite-youtube", "type": "remote", "format": "binary", "url": "https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/youtube.srs", "download_detour": "🚀 节点选择","update_interval": "7d" },
         { "tag": "geosite-google", "type": "remote", "format": "binary", "url": "https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/google.srs", "download_detour": "🚀 节点选择","update_interval": "7d" },
         { "tag": "geosite-github", "type": "remote", "format": "binary", "url": "https://raw.githubusercontent.com/galendu/meta-rules-dat/sing/geo/geosite/github.srs", "download_detour": "🚀 节点选择","update_interval": "7d" },
