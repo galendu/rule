@@ -56,9 +56,9 @@ jobs:
               exit 1
               ;;
           esac
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4.5.0
-        with:
-          name: singbox-config
-          path: |
-            config1
+      # - name: Upload artifact
+      #   uses: actions/upload-artifact@v4.5.0
+      #   with:
+      #     name: singbox-config
+      #     path: |
+      #       config1
