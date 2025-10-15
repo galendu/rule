@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "rules": [
+    { "domain": ["www.connetweb.com"] },
+    { "domain_suffix": ["connetweb.com"] },
+    { "domain_keyword": ["connetweb"] },
+    { "process_name": ["ms-teams.exe"] },
+    { "ip_cidr": "91.108.57.0/22" }
+  ]
+}
