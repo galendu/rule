@@ -117,7 +117,7 @@
         "fdfe:dcba:9876::1/126"
       ],
       "auto_route": true,
-      "auto_redirect": true,
+      "auto_redirect": false,
       "strict_route": true
     }
   ],
