@@ -2,6 +2,7 @@
   "dns": {
     "servers": [
       {"tag": "local", "type": "udp", "server": "223.5.5.5"},
+      {"tag": "local-fallback", "type": "udp", "server": "119.29.29.29"},
       {"tag": "public", "type": "https", "server": "dns.alidns.com", "domain_resolver": "local"},
       {"tag": "foreign", "type": "https", "server": "8.8.8.8", "detour": "🚀 默认代理"},
       {"tag": "fakeip", "type": "fakeip", "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18"}
@@ -11,7 +12,7 @@
       {"clash_mode": "global", "server": "fakeip"},
       {"domain_suffix": ["services.googleapis.cn", "googleapis.cn", "xn--ngstr-lra8j.com"], "server": "foreign"},
       {"rule_set": ["geosite-cn", "geosite-steamcn", "geosite-apple"], "server": "local"},
-      {"query_type": ["A", "AAAA"], "server": "fakeip", "rewrite_ttl": 1}
+      {"query_type": ["A", "AAAA"], "server": "fakeip", "rewrite_ttl": 60}
     ],
     "final": "foreign",
     "strategy": "prefer_ipv4",
@@ -52,9 +53,9 @@
       {"clash_mode": "direct", "outbound": "🎯 全球直连"},
       {"clash_mode": "global", "outbound": "GLOBAL"},
       {"source_port": [22],"outbound": "🎯 全球直连"},
+      {"rule_set": "geosite-ai", "outbound": "🧠 AI"},
       {"domain_suffix":"tmate.io","outbound": "🎯 全球直连"},
       {"domain_suffix": ["hongxingyunmovie.vip","6666456.xyz","st.stentvessel.xyz"],"outbound": "🇸🇬 狮城自动"},
-      {"rule_set": "geosite-ai", "outbound": "🧠 AI"},
       {"rule_set": "geosite-youtube", "outbound": "📹 YouTube"},
       {"rule_set": "geosite-google", "outbound": "🍀 Google"},
       {"rule_set": "geosite-github", "outbound": "👨‍💻 Github"},
@@ -110,7 +111,7 @@
         "172.19.0.1/30",
         "fdfe:dcba:9876::1/126"
       ],
-      "mtu": 9000,
+      "mtu": 1420,
       "auto_route": true,
       "auto_redirect": true,
       "strict_route": true
@@ -138,7 +139,7 @@
   },
   "log": {
     "disabled": false,
-    "level": "info",
+    "level": "warn",
     "timestamp": true
   }
 }
