@@ -2,7 +2,6 @@
   "dns": {
     "servers": [
       {"tag": "local", "type": "udp", "server": "223.5.5.5"},
-      {"tag": "local-fallback", "type": "udp", "server": "119.29.29.29"},
       {"tag": "public", "type": "https", "server": "dns.alidns.com", "domain_resolver": "local"},
       {"tag": "foreign", "type": "https", "server": "8.8.8.8", "detour": "🚀 默认代理"},
       {"tag": "fakeip", "type": "fakeip", "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18"}
@@ -33,7 +32,7 @@
     {"tag": "🪟 Microsoft", "type": "selector", "outbounds": ["🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇲 美国自动", "🐸 手动选择"]},
     {"tag": "🐬 OneDrive", "type": "selector", "outbounds": ["🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇲 美国自动", "🐸 手动选择"]},
     {"tag": "🍏 Apple", "type": "selector", "outbounds": ["🎯 全球直连", "🇭🇰 香港自动", "台湾自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇲 美国自动"]},
-    {"tag": "🐠 漏网之鱼", "type": "selector", "outbounds": ["🚀 默认代理", "🎯 全球直连"]},
+    {"tag": "🐠 漏网之鱼", "type": "selector", "outbounds": ["🎯 全球直连", "🚀 默认代理"]},
     {"tag": "🇭🇰 香港自动", "type": "urltest","url": "https://www.gstatic.com/generate_204","interval": "30s","tolerance": 20,"idle_timeout": "5m","interrupt_exist_connections": true, "outbounds": []},
     {"tag": "台湾自动", "type": "urltest","url": "https://www.gstatic.com/generate_204","interval": "30s","tolerance": 20,"idle_timeout": "5m","interrupt_exist_connections": true, "outbounds": []},
     {"tag": "🇯🇵 日本自动", "type": "urltest","url": "https://www.gstatic.com/generate_204","interval": "30s","tolerance": 20,"idle_timeout": "5m","interrupt_exist_connections": true, "outbounds": []},
