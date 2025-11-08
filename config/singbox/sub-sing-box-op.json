@@ -57,7 +57,7 @@
       {"domain_suffix": ["tmate.io","teams.microsoft.com"],"outbound": "🎯 全球直连"},
       {"domain_keyword": ["svcloud"],"outbound": "🎯 全球直连"},
       {"domain_suffix": ["hongxingyunmovie.vip","6666456.xyz","st.stentvessel.xyz"],"outbound": "🇸🇬 狮城自动"},
-      {"domain_suffix": ["poly.emby.moe","polyplay.xxlb.net"],"outbound": "🇸🇬p"},
+      {"domain_suffix": ["poly.emby.moe","xxlb.net"],"outbound": "🇸🇬p"},
       {"rule_set": "geosite-youtube", "outbound": "📹 YouTube"},
       {"rule_set": "geosite-google", "outbound": "🍀 Google"},
       {"rule_set": "geosite-github", "outbound": "👨‍💻 Github"},
