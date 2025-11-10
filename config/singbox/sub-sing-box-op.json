@@ -54,7 +54,7 @@
       {"clash_mode": "global", "outbound": "GLOBAL"},
       {"source_port": [22],"outbound": "🎯 全球直连"},
       {"rule_set": "geosite-ai", "outbound": "🧠 AI"},
-      {"domain_suffix": ["tmate.io","teams.microsoft.com"],"outbound": "🎯 全球直连"},
+      {"domain_suffix": ["tmate.io","teams.microsoft.com"],"ip_cidr": ["106.55.228.246"],"outbound": "🎯 全球直连"},
       {"domain_keyword": ["svcloud"],"outbound": "🎯 全球直连"},
       {"domain_suffix": ["hongxingyunmovie.vip","6666456.xyz","st.stentvessel.xyz"],"outbound": "🇸🇬 狮城自动"},
       {"domain_suffix": ["poly.emby.moe","xxlb.net"],"outbound": "🇸🇬p"},
