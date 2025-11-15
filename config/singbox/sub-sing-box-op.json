@@ -41,7 +41,7 @@
     {"tag": "🇺🇲 美国自动", "type": "urltest","url": "https://www.gstatic.com/generate_204","interval": "30s","tolerance": 20,"idle_timeout": "5m","interrupt_exist_connections": true, "outbounds": []},
     {"tag": "🐸 手动选择", "type": "selector","outbounds": []},
     {"tag": "♻️ 自动选择", "type": "urltest","url": "https://www.gstatic.com/generate_204","interval": "30s","tolerance": 20,"idle_timeout": "5m","interrupt_exist_connections": true, "outbounds": []},
-    {"tag": "🍃 延迟辅助", "type": "urltest","url": "https://www.gstatic.com/generate_204","interval": "30s","tolerance": 20,"idle_timeout": "5m","interrupt_exist_connections": true, "outbounds": ["🚀 默认代理", "🎯 全球直连"]},
+    {"tag": "🍃 延迟辅助", "type": "selector","outbounds": ["🚀 默认代理", "🎯 全球直连"]},
     {"tag": "GLOBAL", "type": "selector", "outbounds": ["🚀 默认代理", "🧠 AI", "📹 YouTube", "🍀 Google", "👨‍💻 Github", "📲 Telegram", "🎵 TikTok", "🎥 Netflix", "💶 PayPal", "🎮 Steam", "🪟 Microsoft", "🐬 OneDrive", "🍏 Apple", "🐠 漏网之鱼", "🇭🇰 香港自动", "台湾自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇲 美国自动", "🐸 手动选择", "♻️ 自动选择", "🍃 延迟辅助", "🎯 全球直连"]},
     {"tag": "🎯 全球直连", "type": "direct"}
   ],
