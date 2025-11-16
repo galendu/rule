@@ -121,7 +121,7 @@
       "auto_redirect": true,
       "strict_route": true,
       "route_exclude_address": [
-        "223.5.5.5/32",
+        "223.6.6.6/32",
         "45.15.102.34/32"
   ]
     },
