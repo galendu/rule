@@ -115,9 +115,7 @@
       "listen_port": 7895,
       "sniff": true,
       "sniff_override_destination": true,
-      "udp_timeout": "5m",
-      "sniff": true,
-      "sniff_override_destination": true
+      "udp_timeout": "5m"
     },
     {
       "type": "mixed",
