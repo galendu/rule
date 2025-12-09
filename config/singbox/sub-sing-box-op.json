@@ -50,7 +50,7 @@
     "rules": [
       {"action": "sniff", "sniffer": ["http", "tls", "quic", "dns"]},
       {"type": "logical", "mode": "or", "rules": [{"port": 53}, {"protocol": "dns"}], "action": "hijack-dns"},
-      {"type":"logical","mode":"or","rules":[{"domain":["apple-bing.sbs","polybase.sbs","svcloud.one"],"outbound":"🎯 全球直连"},{"domain":["apple-bing.sbs","polybase.sbs","svcloud.one"],"outbound":"🍀 Google"}],"invert":false,"outbound":"🎯 全球直连"},
+      {"type":"logical","mode":"or","rules":[{"domain":["apple-bing.sbs","polybase.sbs","svcloud.one","wg.863636.xyz","op.863636.xyz","dufs.863636.xyz"],"outbound":"🎯 全球直连"},{"domain":["apple-bing.sbs","polybase.sbs","svcloud.one"],"outbound":"🍀 Google"}],"invert":false,"outbound":"🎯 全球直连"},
       {"ip_is_private": true, "outbound": "🎯 全球直连"},
       {"clash_mode": "direct", "outbound": "🎯 全球直连"},
       {"clash_mode": "global", "outbound": "GLOBAL"},
