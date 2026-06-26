@@ -10,6 +10,7 @@
     "rules": [
       {"clash_mode": "direct", "server": "local"},
       {"domain": "zhongyaogjiedaizhongxin-fanqienovel.com","server": "proxy-doh"},
+      {"domain": "fangtaichujv.polyinqin.com","server": "local"},
       {"clash_mode": "global", "server": "fakeip"},
       {"domain_suffix": ["services.googleapis.cn", "googleapis.cn", "xn--ngstr-lra8j.com"], "rule_set":["geosite-google"],"server": "foreign"},
       {"rule_set": ["geosite-cn", "geosite-steamcn", "geosite-apple"], "server": "local"},
