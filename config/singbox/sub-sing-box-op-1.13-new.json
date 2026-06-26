@@ -62,6 +62,7 @@
       {"domain_suffix": ["hongxingyunmovie.vip","6666456.xyz","st.stentvessel.xyz","hongxingyun.xyz","hongxingyun.homes"],"outbound": "🇸🇬 狮城自动"},
       {"domain_suffix": ["poly.emby.moe","xxlb.net"],"outbound": "🇸🇬p"},
       {"domain": ["s-ui.863636.xyz"],"outbound": "self"},
+      {"domain": ["fangtaichujv.polyinqin.com"],"outbound": "proxy-doh"},
       {"rule_set": "geosite-youtube", "outbound": "📹 YouTube"},
       {"rule_set": "geosite-google", "outbound": "🍀 Google"},
       {"rule_set": "geosite-github", "outbound": "👨‍💻 Github"},
